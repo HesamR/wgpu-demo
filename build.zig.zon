@@ -1,0 +1,21 @@
+.{
+    .name = "wgpu-demo",
+    .version = "0.1.0",
+    .dependencies = .{
+        .tracy = .{ .path = "../../zig-packages/tracy" },
+        .meshoptimizer = .{ .path = "../../zig-packages/meshoptimizer" },
+        .nuklear = .{ .path = "../../zig-packages/nuklear" },
+        .sdl3 = .{ .path = "../../zig-packages/SDL3" },
+        .wgpu = .{ .path = "../../zig-packages/wgpu" },
+        .obj = .{
+            .url = "git+https://github.com/chip2n/zig-obj.git#f7967f0e5078befc1a8dcaa19cceb8ce5e4112f5",
+            .hash = "122034662166b2547ccc179c0a1c770a79f44c6258a536fe6ef1d8a558baa6018c9e",
+        },
+    },
+    .paths = .{
+        "src",
+        "libs",
+        "build.zig.zon",
+        "build.zig",
+    },
+}
