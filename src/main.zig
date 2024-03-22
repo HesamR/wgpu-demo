@@ -1,9 +1,9 @@
 const std = @import("std");
 const log = std.log.scoped(.main);
 
-pub const std_options = struct {
-    pub const log_level = .debug;
-    // pub const logFn = tracy.logFn;
+pub const std_options: std.Options = .{
+    .log_level = .debug,
+    .logFn = tracy.logFn,
 };
 
 const sdl = @import("sdl");
@@ -22,6 +22,9 @@ const Mesh = @import("Mesh.zig");
 pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     defer _ = gpa.deinit();
+
+    const wgpu_version = wgpu.getVersion();
+    log.info("wgpu version is: {}", .{wgpu_version});
 
     var tracing_allocator = tracy.TracingAllocator.init(gpa.allocator());
     const allocator = tracing_allocator.allocator();
